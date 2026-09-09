@@ -37,7 +37,7 @@ www.linkedin.com/in/fabriciofsantana/
 
 ---
 
-# Relacionamento entre classes
+# Classes e Objetos
 
 - **Classe**: modela dados e comportamentos de um conceito
 
@@ -54,6 +54,40 @@ www.linkedin.com/in/fabriciofsantana/
 ---
 
 # Relacionamento entre classes
+
+> O relacionamento entre as classes influencia **acoplamento** e **coesão**
+
+- **Acoplamento**: mede o nível de interdependência entre diferentes classes ou módulos de um sistema
+- **Coesão**: mede o quanto as responsabilidades de uma classe, módulo ou componente são focadas e relacionadas entre si
+
+---
+
+# Acoplamento x Coesão
+
+
+**Acoplamento**
+
+- baixo acoplamento (desacoplado): as classes operam de forma independente, alterar um módulo não quebra ou afeta o funcionamento dos outros
+- alto acoplamento: as classes estão profundamente conectados, mudar uma linha de código em um componente exige alterações em vários outros lugares
+
+**Coesão**
+
+- alta coesão: a classe possui um propósito único e bem definido. Cada parte dele trabalha para realizar uma única tarefa
+- baixa coesão: a classe acumula várias responsabilidades que não possuem relação direta, funcionando como um "faz-tudo" desorganizado
+
+---
+
+# Acoplamento x Coesão
+
+<div style="text-align: center;">
+
+<img src="../images/09-acoplamento-coesao.png" alt="Acoplamento e Coesão" style="width: 75%; height: auto;">
+
+</div>
+
+---
+
+# Tipos de relaciomanetos entre classes e objetos
 
 <div class="columns">
 <div>
@@ -77,8 +111,6 @@ www.linkedin.com/in/fabriciofsantana/
 
 </div>
 </div>
-
-> O relacionamento escolhido comunica semântica e influencia acoplamento, propriedade e evolução do software.
 
 ---
 
