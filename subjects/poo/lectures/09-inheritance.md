@@ -55,10 +55,11 @@ www.linkedin.com/in/fabriciofsantana/
 
 # Relacionamento entre classes
 
-> O relacionamento entre as classes influencia **acoplamento** e **coesão**
+<div style="text-align: center;">
 
-- **Acoplamento**: mede o nível de interdependência entre diferentes classes ou módulos de um sistema
-- **Coesão**: mede o quanto as responsabilidades de uma classe, módulo ou componente são focadas e relacionadas entre si
+<img src="../images/09-acoplamento-coesao-conceito.png" alt="Acoplamento e Coesão" style="width: 75%; height: auto;">
+
+</div>
 
 ---
 
@@ -87,7 +88,7 @@ www.linkedin.com/in/fabriciofsantana/
 
 ---
 
-# Tipos de relaciomanetos entre classes e objetos
+# Relacionamentos entre classes
 
 <div class="columns">
 <div>
@@ -116,21 +117,13 @@ www.linkedin.com/in/fabriciofsantana/
 
 <!-- _class: compact -->
 
-# Relacionamentos em diagramas de classes
+# Tipos de relaciomanetos entre classes e objetos
 
-<table class="small">
-<thead><tr><th>Relacionamento</th><th>Ideia central</th><th>Notação UML</th></tr></thead>
-<tbody>
-<tr><td>Dependência</td><td>Usa temporariamente</td><td>Linha tracejada com seta</td></tr>
-<tr><td>Associação</td><td>Mantém uma ligação</td><td>Linha contínua</td></tr>
-<tr><td>Agregação</td><td>Todo reúne partes independentes</td><td>Losango vazio no todo</td></tr>
-<tr><td>Composição</td><td>Todo controla suas partes</td><td>Losango preenchido no todo</td></tr>
-<tr><td>Generalização</td><td>Subtipo é uma especialização</td><td>Triângulo vazio e linha contínua</td></tr>
-<tr><td>Realização</td><td>Classe cumpre uma interface</td><td>Triângulo vazio e linha tracejada</td></tr>
-</tbody>
-</table>
+<div style="text-align: center;">
 
-> UML registra uma decisão de modelagem. O diagrama deve permanecer coerente com as referências, construções e contratos implementados no código.
+<img src="../images/09-relacionamentos.png" alt="Tipos de relacionamentos entre classes" style="width: 75%; height: auto;">
+
+</div>
 
 ---
 
@@ -138,30 +131,11 @@ www.linkedin.com/in/fabriciofsantana/
 
 # Multiplicidade e navegabilidade
 
-<div class="columns">
-<div>
+<div style="text-align: center;">
 
-**Multiplicidade**
-
-- `1`: exatamente um
-- `0..1`: nenhum ou um
-- `*` ou `0..*`: qualquer quantidade
-- `1..*`: ao menos um
+<img src="../images/09-navegabilidade.png" alt="Tipos de relacionamentos entre classes" style="width: 75%; height: auto;">
 
 </div>
-<div>
-
-**Navegabilidade**
-
-- A seta indica quem conhece quem
-- Normalmente corresponde a uma referência
-- Associação bidirecional exige referências nos dois lados
-- Mais navegação costuma significar mais acoplamento
-
-</div>
-</div>
-
-> Multiplicidade descreve quantos objetos podem participar da relação, não quantos existem no sistema inteiro.
 
 ---
 
@@ -169,14 +143,14 @@ www.linkedin.com/in/fabriciofsantana/
 
 # Dependência
 
+> Uma classe depende de outra quando a utiliza temporariamente para realizar uma operação.
+
 <div class="columns">
 <div>
 
-> Uma classe depende de outra quando a utiliza temporariamente para realizar uma operação.
-
 - Surge em parâmetros, variáveis locais, retornos ou chamadas estáticas
 - O objeto usado não precisa permanecer armazenado
-- É o relacionamento estrutural mais fraco apresentado nesta aula
+- É o relacionamento estrutural mais fraco
 - Alterações no contrato usado ainda podem afetar o cliente
 
 </div>
@@ -184,10 +158,12 @@ www.linkedin.com/in/fabriciofsantana/
 
 <img src="../images/09-dependency.png" alt="Diagrama UML de dependência entre ReportService e Formatter">
 
+  - `ReportService` recebe um `Formatter` apenas durante `generate`; depois da chamada, não conserva a referência.
+
 </div>
 </div>
 
-`ReportService` recebe um `Formatter` apenas durante `generate`; depois da chamada, não conserva a referência.
+
 
 ---
 
@@ -208,10 +184,10 @@ www.linkedin.com/in/fabriciofsantana/
 
 # Associação
 
+> Associação representa uma ligação duradoura entre objetos
+
 <div class="columns">
 <div>
-
-> Associação representa uma ligação relativamente duradoura entre objetos com identidade própria.
 
 - Uma classe mantém referência para a outra em um atributo
 - Pode ser unidirecional ou bidirecional
@@ -223,10 +199,10 @@ www.linkedin.com/in/fabriciofsantana/
 
 <img src="../images/09-association.png" alt="Diagrama UML de associação entre Teacher e Course">
 
-</div>
-</div>
+- `Teacher` conhece a disciplina que ministra, mas `Course` é criado e pode existir independentemente do professor.
 
-`Teacher` conhece a disciplina que ministra, mas `Course` é criado e pode existir independentemente do professor.
+</div>
+</div>
 
 ---
 
@@ -247,10 +223,10 @@ www.linkedin.com/in/fabriciofsantana/
 
 # Agregação
 
+> Agregação é uma associação todo–parte em que as partes possuem ciclo de vida independente
+
 <div class="columns">
 <div>
-
-> Agregação é uma associação todo–parte em que as partes possuem ciclo de vida independente.
 
 - O todo normalmente recebe objetos já existentes
 - A parte pode existir sem o todo
@@ -262,10 +238,14 @@ www.linkedin.com/in/fabriciofsantana/
 
 <img src="../images/09-aggregation.png" alt="Diagrama UML de agregação entre Team e Player">
 
-</div>
-</div>
+<div class="tiny">
 
-`Team` reúne jogadores recebidos pelo construtor; destruir a equipe não destrói conceitualmente os jogadores.
+- `Team` reúne jogadores recebidos pelo construtor; destruir a equipe não destrói conceitualmente os jogadores.
+
+<div>
+
+</div>
+</div>
 
 ---
 
@@ -286,10 +266,10 @@ www.linkedin.com/in/fabriciofsantana/
 
 # Composição
 
+> Composição é uma associação todo–parte em que o todo controla a criação e o ciclo de vida das partes.
+
 <div class="columns">
 <div>
-
-> Composição é uma associação todo–parte em que o todo controla a criação e o ciclo de vida das partes.
 
 - A parte pertence a um único todo por vez
 - A parte não possui significado independente naquele modelo
@@ -301,10 +281,16 @@ www.linkedin.com/in/fabriciofsantana/
 
 <img src="../images/09-composition.png" alt="Diagrama UML de composição entre Order e OrderItem">
 
+<div class="tiny">
+
+- `Order` cria seus itens e não permite construí-los externamente; o item existe como parte daquele pedido.
+
+<div>
+
 </div>
 </div>
 
-`Order` cria seus itens e não permite construí-los externamente; o item existe como parte daquele pedido.
+
 
 ---
 
@@ -318,25 +304,6 @@ www.linkedin.com/in/fabriciofsantana/
   src="https://onecompiler.com/embed/java/4526sj5vr?hideTitle=false&hideLanguageSelection=false&hideNew=false&hideNewFileOption=false&hideStdin=false&hideResult=false&hideEditorOptions=false&availableLanguages=true&disableAutoComplete=true&theme=light&fontSize=14"
   title="OneCompiler Java — composição"
   allow="clipboard-read; clipboard-write"></iframe>
-
----
-
-<!-- _class: compact -->
-
-# Associação, agregação e composição
-
-<table class="small">
-<thead><tr><th>Critério</th><th>Associação</th><th>Agregação</th><th>Composição</th></tr></thead>
-<tbody>
-<tr><td>Semântica</td><td>Conhece ou colabora</td><td>Todo reúne partes</td><td>Todo possui partes</td></tr>
-<tr><td>Ciclo de vida</td><td>Independente</td><td>Parte independente</td><td>Parte controlada pelo todo</td></tr>
-<tr><td>Compartilhamento</td><td>Possível</td><td>Possível</td><td>Não simultaneamente</td></tr>
-<tr><td>Criação típica</td><td>Fora da classe</td><td>Fora do todo</td><td>Dentro do todo</td></tr>
-<tr><td>UML</td><td>Linha</td><td>Losango vazio</td><td>Losango preenchido</td></tr>
-</tbody>
-</table>
-
-> Em Java, todas podem envolver atributos por referência. A diferença principal está na semântica e em quem controla o ciclo de vida.
 
 ---
 
@@ -369,7 +336,7 @@ Uma superclasse pode ser direta ou indireta. O conjunto dessas relações forma 
 
 ---
 
-# Generalização na hierarquia `Employee`
+# Herança: exemplo
 
 <img src="../images/09-inheritance.png" alt="Diagrama UML da hierarquia de Employee">
 
@@ -379,36 +346,31 @@ O triângulo aponta para o tipo mais geral. `BasePlusCommissionEmployee` possui 
 
 <!-- _class: compact -->
 
-# Relações `is-a` e `has-a`
+# Relações _is-a_ e _has-a_
 
 <div class="columns">
 <div>
 
-**Herança — é-um**
+**Herança**: 
 
+- relação do tipo é-um(_is-a_)
 - `SalariedEmployee` é um `Employee`
+- `SalariedEmployee` `extends` `Employee`
 - A subclasse deve poder substituir o tipo base
 - A especialização preserva o contrato comum
 
 </div>
 <div>
 
-**Composição — tem-um**
+**Composição**:
 
+- relação do tipo  tem-um(_has-a_)
 - `Car` tem um `Engine`
 - O objeto delega trabalho a um colaborador
 - A implementação pode ser substituída com flexibilidade
 
 </div>
 </div>
-
-<table class="small">
-<thead><tr><th>Relação</th><th>Modelagem</th><th>Exemplo</th></tr></thead>
-<tbody>
-<tr><td><em>is-a</em></td><td>Herança</td><td><code>Student extends Person</code></td></tr>
-<tr><td><em>has-a</em></td><td>Composição</td><td><code>Car</code> possui um <code>Engine</code></td></tr>
-</tbody>
-</table>
 
 ---
 
@@ -434,7 +396,7 @@ O objeto da subclasse contém o estado da parte herdada e da parte especializada
 <!-- _class: practice -->
 <!-- _paginate: false -->
 
-# `extends`: primeira demonstração
+# Herança: demostração _extends_
 
 <iframe
   class="compiler-frame"
