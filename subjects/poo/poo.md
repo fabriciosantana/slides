@@ -6,6 +6,8 @@ html: true
 footer: <span>Programação Orientada a Objetos</span><span>Índice das aulas</span><span>2026.2</span><span>Prof. Fabricio Santana</span>
 ---
 
+<!-- _class: compact -->
+
 # Programação Orientada a Objetos
 
 ## Fundamentos
@@ -18,6 +20,7 @@ footer: <span>Programação Orientada a Objetos</span><span>Índice das aulas</s
 - [Entrada e saída de dados](./05-input-output.html): `java.util.Scanner`, `System.in`, `System.out`
 - [Estruturas de seleção](./06-flow-selection.html): `if`, `if-else`, `if-else if-else`, `switch`
 - [Estruturas de repetição](./07-flow-iteration.html): `for`, `while`, `do-while`
+- [Arrays em Java](./09-arrays.html): `[]`, `[][]`, _enhanced_ `for` , `varargs` e `java.util.Arrays`
 
 ---
 
@@ -33,7 +36,7 @@ footer: <span>Programação Orientada a Objetos</span><span>Índice das aulas</s
     - abstração e encapsulamento: _getters_ e _setters_
     - modificadores de acesso: `public`, `private`, `protected`
     - membro de instância e membro de classe: `static`
-- [Introdução à Modelagem Orientada a Objetos: relacionamentos entre classes](./09-inheritance.html)
+- [Introdução à Modelagem Orientada a Objetos: relacionamentos entre classes](./10-oop-modeling.html)
     - dependência, associação, agregação, composição
     - generalização, herança: `extends`, `super`, `abstract class`, `final`
     - realização, interface: `interface`, `implements`

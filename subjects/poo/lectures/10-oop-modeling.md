@@ -47,7 +47,7 @@ www.linkedin.com/in/fabriciofsantana/
 
 <div style="text-align: center;">
 
-<img src="../images/09-classes-objects.png" alt="Classes e objetos" style="width: 90%; height: auto;">
+<img src="../images/10-classes-objects.png" alt="Classes e objetos" style="width: 90%; height: auto;">
 
 </div>
 
@@ -57,7 +57,7 @@ www.linkedin.com/in/fabriciofsantana/
 
 <div style="text-align: center;">
 
-<img src="../images/09-acoplamento-coesao-conceito.png" alt="Acoplamento e Coesão" style="width: 75%; height: auto;">
+<img src="../images/10-acoplamento-coesao-conceito.png" alt="Acoplamento e Coesão" style="width: 75%; height: auto;">
 
 </div>
 
@@ -82,7 +82,7 @@ www.linkedin.com/in/fabriciofsantana/
 
 <div style="text-align: center;">
 
-<img src="../images/09-acoplamento-coesao.png" alt="Acoplamento e Coesão" style="width: 75%; height: auto;">
+<img src="../images/10-acoplamento-coesao.png" alt="Acoplamento e Coesão" style="width: 75%; height: auto;">
 
 </div>
 
@@ -121,7 +121,7 @@ www.linkedin.com/in/fabriciofsantana/
 
 <div style="text-align: center;">
 
-<img src="../images/09-relacionamentos.png" alt="Tipos de relacionamentos entre classes" style="width: 75%; height: auto;">
+<img src="../images/10-relacionamentos.png" alt="Tipos de relacionamentos entre classes" style="width: 75%; height: auto;">
 
 </div>
 
@@ -133,7 +133,7 @@ www.linkedin.com/in/fabriciofsantana/
 
 <div style="text-align: center;">
 
-<img src="../images/09-navegabilidade.png" alt="Tipos de relacionamentos entre classes" style="width: 75%; height: auto;">
+<img src="../images/10-navegabilidade.png" alt="Tipos de relacionamentos entre classes" style="width: 75%; height: auto;">
 
 </div>
 
@@ -156,7 +156,7 @@ www.linkedin.com/in/fabriciofsantana/
 </div>
 <div>
 
-<img src="../images/09-dependency.png" alt="Diagrama UML de dependência entre ReportService e Formatter">
+<img src="../images/10-dependency.png" alt="Diagrama UML de dependência entre ReportService e Formatter">
 
   - `ReportService` recebe um `Formatter` apenas durante `generate`; depois da chamada, não conserva a referência.
 
@@ -197,7 +197,7 @@ www.linkedin.com/in/fabriciofsantana/
 </div>
 <div>
 
-<img src="../images/09-association.png" alt="Diagrama UML de associação entre Teacher e Course">
+<img src="../images/10-association.png" alt="Diagrama UML de associação entre Teacher e Course">
 
 - `Teacher` conhece a disciplina que ministra, mas `Course` é criado e pode existir independentemente do professor.
 
@@ -236,7 +236,7 @@ www.linkedin.com/in/fabriciofsantana/
 </div>
 <div>
 
-<img src="../images/09-aggregation.png" alt="Diagrama UML de agregação entre Team e Player">
+<img src="../images/10-aggregation.png" alt="Diagrama UML de agregação entre Team e Player">
 
 <div class="tiny">
 
@@ -279,7 +279,7 @@ www.linkedin.com/in/fabriciofsantana/
 </div>
 <div>
 
-<img src="../images/09-composition.png" alt="Diagrama UML de composição entre Order e OrderItem">
+<img src="../images/10-composition.png" alt="Diagrama UML de composição entre Order e OrderItem">
 
 <div class="tiny">
 
@@ -338,7 +338,7 @@ Uma superclasse pode ser direta ou indireta. O conjunto dessas relações forma 
 
 # Herança: exemplo
 
-<img src="../images/09-inheritance.png" alt="Diagrama UML da hierarquia de Employee">
+<img src="../images/10-inheritance.png" alt="Diagrama UML da hierarquia de Employee">
 
 O triângulo aponta para o tipo mais geral. `BasePlusCommissionEmployee` possui uma superclasse direta e também uma superclasse indireta.
 
@@ -669,7 +669,7 @@ Toda classe Java herda direta ou indiretamente de `java.lang.Object`.
 </table>
 
 - Ao sobrescrever `equals`, sobrescreva também `hashCode`
-- `toString` já foi sobrescrito na aula anterior
+- `toString` já foi sobrescrito na aula 08
 - `equals` recebe `Object` porque deve aceitar qualquer referência
 - `clone` existe em `Object`, mas é `protected` e exige cuidados específicos
 
@@ -780,7 +780,7 @@ Na UML, realização usa linha tracejada e triângulo vazio apontando para a int
 </div>
 <div>
 
-<img src="../images/09-realization.png" alt="Diagrama UML de realização da interface Payable">
+<img src="../images/10-realization.png" alt="Diagrama UML de realização da interface Payable">
 
 </div>
 </div>
