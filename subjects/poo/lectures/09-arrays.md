@@ -40,15 +40,29 @@ www.linkedin.com/in/fabriciofsantana/
 
 Em vez de declarar uma variável para cada valor, um array reúne elementos **do mesmo tipo** em uma estrutura indexada.
 
+
+<div style="text-align: center;">
+
+<img src="../images/09-array.png" alt="Array" style="width: 90%; height: auto;">
+
+</div>
+
+---
+
+<!-- _class: compact -->
+
+# Array
+
 <div class="columns">
 <div>
 
-**Array**
+**Característica de um Array**
 
 - É um objeto por referência
 - Pode guardar primitivos ou referências
 - Possui tamanho fixo após a criação
-- Seus elementos são acessados por índice
+- Todos os elementos devem ser do mesmo tipo
+- Seus elementos são acessados por índice, começando em `0`
 
 </div>
 <div>
@@ -57,13 +71,11 @@ Em vez de declarar uma variável para cada valor, um array reúne elementos **do
 
 - Notas de uma turma: `double[]`
 - Nomes de participantes: `String[]`
-- Frequência de resultados de um dado: `int[]`
+- Frequência de resultados: `int[]`
 - Tabela de valores: `int[][]`
 
 </div>
 </div>
-
-> Arrays são a ponte entre laços já estudados e o processamento de grupos de dados. Coleções redimensionáveis serão estudadas na aula 11.
 
 ---
 
@@ -137,12 +149,33 @@ int last = values[values.length - 1]; // 64
 
 - O primeiro índice é `0`
 - O último índice válido é `length - 1`
-- `length` é uma **propriedade do array**, sem parênteses
+- `length` é uma **atributo do array**, sem parênteses
 - Índices devem estar entre `0` e `length - 1`
 - Um array vazio tem `length == 0` e não possui primeiro elemento
-- Acesso fora desse intervalo lança `ArrayIndexOutOfBoundsException`
+- Acesso fora desse intervalo dispara `ArrayIndexOutOfBoundsException`
 
 > `array.length` é diferente de `text.length()`, que é método de `String`.
+
+---
+
+# Iterar pelos ementos usando _for_
+
+```java
+int[] values = {32, 27, 64, 18};
+
+for (int index = 0; index < values.length; index++) {
+    System.out.printf("%d → %d%n", index, values[index]);
+}
+```
+
+- Use `index < values.length`, não `<=`
+- O índice permite localizar, substituir ou comparar posições
+- `values[index] = 99` modifica um elemento existente
+- O comprimento do array não muda com uma atribuição
+
+> Se a posição do elemento influencia a lógica, use `for` com índice.
+
+</div>
 
 ---
 
@@ -158,32 +191,9 @@ int last = values[values.length - 1]; // 64
 
 ---
 
-# Percorrendo com _for_ por índice
+<!-- _class: compact -->
 
-```java
-int[] values = {32, 27, 64, 18};
-
-for (int index = 0; index < values.length; index++) {
-    System.out.printf("%d → %d%n", index, values[index]);
-}
-```
-
-- Use `index < values.length`, não `<=`
-- O índice permite localizar, substituir ou comparar posições
-- `values[index] = 99` modifica um elemento existente
-- O comprimento do array não muda com uma atribuição
-
-<div class="callout">
-
-**Escolha do laço**
-
-Se a posição do elemento influencia a lógica, use `for` com índice.
-
-</div>
-
----
-
-# _for_ aprimorado: somente os valores
+# _enhanced for (for-each)_: iterar pelos valores
 
 ```java
 int[] grades = {8, 7, 10};
@@ -198,7 +208,7 @@ double average = (double) total / grades.length;
 
 - Ideal quando o índice não é necessário
 - Visita os elementos em ordem
-- A variável do laço recebe o valor de cada elemento
+- A variável da iteração recebe o valor de cada elemento
 - Atribuir à variável `grade` **não altera** `grades`
 - Verifique `length > 0` antes de calcular uma média
 
@@ -207,7 +217,7 @@ double average = (double) total / grades.length;
 <!-- _class: practice -->
 <!-- _paginate: false -->
 
-# Estatísticas com _for_ aprimorado: demo
+# Demostração: estatísticas com _enhanced for_
 
 <iframe class="compiler-frame"
   src="https://onecompiler.com/embed/java/453d43w24?hideTitle=false&hideLanguageSelection=false&hideNew=false&hideNewFileOption=false&hideStdin=false&hideResult=false&hideEditorOptions=false&availableLanguages=true&disableAutoComplete=true&theme=light&fontSize=14"
@@ -215,6 +225,8 @@ double average = (double) total / grades.length;
   allow="clipboard-read; clipboard-write"></iframe>
 
 ---
+
+<!-- _class: compact -->
 
 # Frequências com array
 
@@ -232,14 +244,14 @@ for (int result : rolls) {
 - `frequency[0]` fica sem uso neste modelo
 - Valide `result` antes de usar como índice se os dados vêm de fora
 - Os valores padrão `0` permitem começar a contagem
-- É possível construir gráficos de barras com laços aninhados
+- É possível construir gráficos de barras com iterações aninhados
 
 ---
 
 <!-- _class: practice -->
 <!-- _paginate: false -->
 
-# Frequências e barras: demonstração
+# Demonstração: frequências e barras
 
 <iframe class="compiler-frame"
   src="https://onecompiler.com/embed/java/453d457jh?hideTitle=false&hideLanguageSelection=false&hideNew=false&hideNewFileOption=false&hideStdin=false&hideResult=false&hideEditorOptions=false&availableLanguages=true&disableAutoComplete=true&theme=light&fontSize=14"
@@ -248,7 +260,12 @@ for (int result : rolls) {
 
 ---
 
+<!-- _class: compact -->
+
 # Acesso inválido e tratamento de exceção
+
+- Algumas operações com arrays podem gerar um comportamento inesperado
+- O bloco `try-catch` permite capturar e tratar esses comportamentos
 
 ```java
 int[] values = {10, 20, 30};
@@ -261,10 +278,10 @@ try {
 ```
 
 - `try` contém a operação que pode falhar
-- `catch` recebe a exceção e define a reação
-- A exceção não aumenta o array nem cria uma posição inexistente
-- Em código normal, prefira prevenir o erro com limites corretos
-- Use tratamento quando um erro ainda for possível e houver reação adequada
+- `catch` recebe a exceção e define o tratamento
+- A exceção não aumenta o array nem cria um elemento inexistente
+- Prefira prevenir o erro com limites corretos
+- Use tratamento quando um erro ainda for possível e houver tratamento adequado
 
 ---
 
@@ -311,10 +328,8 @@ students[1] = new Student("Bia", 21, "Computação");
 - O array armazena **referências** a objetos `Student`
 - Antes das atribuições, ambas as posições são `null`
 - Objetos do mesmo tipo podem compartilhar métodos e ter estados distintos
-- Cada posição pode apontar para uma subclasse de `Student`, se houver
+- Cada elemento pode apontar para uma subclasse de `Student`, se houver
 - Um array não cria nem valida automaticamente seus objetos
-
-<div class="source">Retoma classes, construtores e referências da aula 08.</div>
 
 ---
 
@@ -365,7 +380,7 @@ seats[2] = new int[3];
 - A primeira criação estabelece três posições para linhas
 - Cada linha nasce `null` até receber seu próprio array
 - `seats[row].length` pode variar
-- Um laço interno deve respeitar a linha corrente
+- A iteração interna deve respeitar a linha corrente
 - Tentar usar `seats[row][column]` antes de criar a linha lança `NullPointerException`
 
 > Uma tabela irregular é útil para grupos naturalmente heterogêneos, sem desperdiçar posições.
@@ -487,13 +502,8 @@ A classe `Arrays` fornece métodos **estáticos** prontos para operações comun
 - `Arrays.copyOf(array, newLength)` cria outro array e copia elementos: **O(n)**
 - O array original mantém seu tamanho e conteúdo
 
-<div class="callout">
 
-**Próximo passo**
-
-Quando o conjunto cresce e diminui ao longo da execução, estruturas do Java Collections Framework podem ser mais adequadas. Arrays continuam úteis quando o tamanho é conhecido ou o acesso por posição é central.
-
-</div>
+> Quando o conjunto cresce e diminui ao longo da execução, estruturas do _Java Collections Framework_ podem ser mais adequadas. Arrays continuam úteis quando o tamanho é fixo e conhecido.
 
 ---
 
@@ -503,7 +513,7 @@ Quando o conjunto cresce e diminui ao longo da execução, estruturas do Java Co
 - Valide entradas externas antes de usá-las como índices
 - Use `for` com índice quando a posição importa
 - Use `for` aprimorado quando só os valores importam
-- Verifique arrays vazios antes de calcular médias ou acessar a primeira posição
+- Verifique arrays vazios antes de processar ou acessar a primeira posição
 - Em arrays de objetos, trate posições ainda `null`
 - Copie arrays recebidos quando a classe precisa proteger seu estado
 - Não use exceções como substituto de limites corretos
@@ -513,10 +523,10 @@ Quando o conjunto cresce e diminui ao longo da execução, estruturas do Java Co
 
 # Síntese da aula
 
-- Arrays são objetos indexados, homogêneos e de tamanho fixo
+- Arrays são objetos indexados, com elementos de mesmo tipo e de tamanho fixo
 - `length` informa o tamanho; índices válidos vão de `0` a `length - 1`
 - Elementos criados com `new` recebem valores padrão
-- `for` e `for` aprimorado atendem necessidades distintas
+- `for` e _enhanced-for (for-each)_ `for( : )` atendem necessidades distintas
 - Java passa uma cópia da referência do array aos métodos
 - Arrays multidimensionais são arrays de arrays e podem ser irregulares
 - `varargs` recebe quantidade variável como um array
